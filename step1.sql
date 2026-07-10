@@ -88,6 +88,7 @@ SELECT product_name, category, price
 FROM products
 -- WHERE category == 'Electronics';
 WHERE category = 'Electronics';
+
 # AND
 SELECT product_name, category, price
 FROM products
