@@ -37,21 +37,21 @@
 
 ```mermaid
 graph TD
-    Root[B-Tree Root: '노이즈캔슬링 헤드폰']
-    Root --> Left[Left Child: '갤럭시 S24']
-    Root --> Right[Right Child: '무선 마우스' ➡️ '아이폰 15']
+    Root["B-Tree Root: 노이즈캔슬링 헤드폰"]
+    Root --> Left["Left Child: 갤럭시 S24"]
+    Root --> Right["Right Child: 무선 마우스 -> 아이폰 15"]
     
-    subgraph Range Scan (LIKE '아이%')
+    subgraph RangeScan["Range Scan (LIKE '아이%')"]
         direction LR
-        Search1["'아'로 시작하는 단어로 찾아가기"] ➡️ Found["'아이폰 15' 즉시 탐색 완료"]
+        Search1["'아'로 시작하는 단어로 찾아가기"] --> Found["'아이폰 15' 즉시 탐색 완료"]
     end
     
-    subgraph Full Scan (LIKE '%마우스')
+    subgraph FullScan["Full Scan (LIKE '%마우스')"]
         direction LR
-        Search2["첫 글자가 정렬되어 있으나 끝 글자는 알 수 없음"] ➡️ Node1["갤럭시 S24"]
-        Node1 ➡️ Node2["노이즈캔슬링 헤드폰"]
-        Node2 ➡️ Node3["무선 마우스 (매칭)"]
-        Node3 ➡️ Node4["아이폰 15"]
+        Search2["첫 글자가 정렬되어 있으나 끝 글자는 알 수 없음"] --> Node1["갤럭시 S24"]
+        Node1 --> Node2["노이즈캔슬링 헤드폰"]
+        Node2 --> Node3["무선 마우스 (매칭)"]
+        Node3 --> Node4["아이폰 15"]
     end
 ```
 
